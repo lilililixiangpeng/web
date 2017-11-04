@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.convention.action.mapallmatches" value="true"/>
+	<package name="default" extends="json-default" namespace="/">
+		<!-- class应该写成spring中的id，只有这样spring才可以注入 -->
+		<action name="*_MethodAction" class="UserAction" method="{1}">
+ 		    <result type="json">
+ 		    	<param name="root">result</param>
+ 		    </result>  
+		</action>    
+		
+		<action name="Verification" class="com.project.users.action.VerificationAction" method="GetVerificode">
+			<result type="stream">  
+				<param name="contentType">image/jpeg</param>
+				<!-- 指定提供InputStream的filed name -->
+				<param name="inputName">imageStream</param>
+				<param name="bufferSize">1024</param>
+			</result>
+			<interceptor-ref name="defaultStack"/>   
+		</action> 
+		
+		<action name="CheckVerificode" class="com.project.users.action.CheckVerificationAction" method="CheckVerificode">
+			<result type="json">
+ 		    	<param name="root">result</param>
+ 		    </result>  
+		</action>
+		
+		<!-- class应该写成spring中的id，只有这样spring才可以注入 -->
+		<action name="RegisterUser" class="RegisterUserAction" method="CheckUser">
+ 		    <result type="json">
+ 		    	<param name="root">result</param>
+ 		    </result>  
+		</action>  
+		
+		<action name="CheckLoginUsrname" class="CheckLoginUsrnameAction" method="CheckLoginUsername">
+ 		    <result type="json">
+ 		    	<param name="root">result</param>
+ 		    </result>  
+		</action>  
+		
+		<action name="SendMailAction" class="com.project.users.action.SendMailAction" method="SendMail">
+				<result type="json">
+ 		    		<param name="root">result</param>
+ 		    	</result> 
+		</action> 
+		 
+		 <action name="CheckMailAction" class="com.project.users.action.CheckMailAction" method="CheckMail">
+				<result type="json">
+ 		    		<param name="root">result</param>
+ 		    	</result> 
+		</action> 
+		
+		<action name="GetLoginUsername" class="GetLoginUsernameAction" method="GetLoginUsername">
+ 		    <result type="json">
+ 		    	<param name="root">result</param>
+ 		    </result>  
+		</action>   
+		
+		<!-- class应该写成spring中的id，只有这样spring才可以注入 -->
+		<action name="SaveImgAction" class="SaveImgActionSpring" method="SaveImg">
+ 		    <result type="json">
+ 		    	<param name="root">result</param>
+ 		    </result>  
+		</action>  
+		
+		<action name="GetImgAction" class="GetImgAcitonSpring" method="GetImg">
+			<result type="stream">  
+				<param name="contentType">image/jpeg</param>
+				<!-- 指定提供InputStream的filed name -->
+				<param name="inputName">imageStream</param>
+				<param name="bufferSize">2048</param>
+			</result>
+			<interceptor-ref name="defaultStack"/>   
+		</action> 
+	</package>
+</struts>    

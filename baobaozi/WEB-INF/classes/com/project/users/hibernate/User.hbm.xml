@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-7-14 18:30:13 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping >
+ <class name="com.project.users.model.Users" table="users">
+  <id name="id" type="int">
+   <column name="SID"/>
+   <generator class="native"/>
+  </id>
+  <property name="username" type="java.lang.String">
+   <column name="SNAME"/>
+  </property>
+  <property name="password" type="java.lang.String">
+   <column name="SPASSWORD"/>
+  </property>
+  <property name="loginusername" type="java.lang.String">
+   <column name="SUSERNAME"/>
+  </property>
+  <property name="imgPath" type="java.lang.String">
+   <column name="SIMGPATH"/>
+  </property>
+ </class>
+</hibernate-mapping>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+    <link rel="icon" href="picture/logo.png" type="image/x-icon"/>
+    <title>dabaozi</title>	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8"> 
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style type="text/css">
+@font-face{font-family:myfont;src:url("font/Weston Free.otf")}
+* { padding: 0; margin: 0; list-style-type: none; }
+body { background-color: #222222 }
+a, img { border: 0; }
+body { font: 12px/180% Arial, Helvetica, sans-serif; font-family:myfont;}
+/* demo */
+/*五张图片在缩略图时所显示的位置调整*/
+#demo li:nth-of-type(1) img { transform: translate(-210px); }
+#demo li:nth-of-type(2) img { transform: translate(-180px); }
+#demo li:nth-of-type(3) img { transform: translate(-380px); }
+#demo li:nth-of-type(4) img { transform: translate(-450px); }
+#demo li:nth-of-type(5) img { transform: translate(-320px); }
+#demo { width: 1160px; height: 512px; margin: 60px auto 0 auto; }
+#demo img { width: 820px; height: 512px; max-width: 820px; }
+#demo li { float: left; position: relative; width: 82px; height: 100%; overflow: hidden; cursor: pointer; transition: 0.5s; transform-origin: bottom; filter: alpha(opacity=50); opacity: 0.5; }
+#demo li img { transition: 1.2s; }
+#demo li a { display: block; }
+#demo li div { position: absolute; bottom: 0; left: 0; width: 100%; background: #000; line-height: 32px; filter: alpha(opacity=70); opacity: 0.7; text-indent: 2em; }
+#demo li div a { color: #FFF; text-decoration: none; }
+#demo li div a:hover { color: #F00; text-decoration: none; }
+#demo li.active { cursor: pointer; transform: scale(1.02, 1.08); z-index: 3; width: 820px; filter: alpha(opacity=100); opacity: 1; }
+#demo li.active img { transform: translate(0px); }
+#demo li:nth-of-type(1) { transform-origin: bottom left; }
+#demo li:nth-of-type(5) { transform-origin: bottom right; }
+
+</style>
+<script type="text/javascript">
+$(document).ready(function(e){
+	  var opt	=	{
+		"speed"	:	"fast"		,	//变换速度,三速度可选 slow,normal,fast;
+		"by"	:	"mouseover"		,	//触发事件,click或者mouseover;
+		"auto"	:	true		,	//是否自动播放;
+		"sec"	:	3000	 		//自动播放间隔;
+	  };
+      $("#demo").IMGDEMO(opt);    
+});
+</script>
+<script type="text/javascript">
+	(function($) {
+    $.fn.extend({
+        IMGDEMO:function(opt) {
+            
+            var opt 	= arguments[0] ? arguments[0] :false;
+            var $button = $(this).children("li")	;			//容器;
+            var $sec 	= 3000						; 			//自动播放默认时间;
+            var $min 	= $button.last().width() 	;			//最小宽度;
+            var $max 	= $button.first().width() 	;			//最大宽度;
+            var $index 	= 1   						;			//轮播开始索引号;
+            
+            $default = {										//默认参数;
+                speed	:	opt.speed 	? 	opt.speed 						:	"slow"	,
+                by		:	opt.by 		? 	opt.by 							:	"click"	,
+                auto	:	opt.auto 	? 	opt.auto						:	false	,
+                sec		:	opt.sec 	? 	opt.sec < 1000 ? 1000 : opt.sec	:	$sec	,
+                maxWidth:	$max														,
+                minWidth:	$min														,
+                index	:	$index
+            };            
+            $button.bind($default.by, this.run).autoPlay();		//绑定事件;
+        },
+        run:function() {										//运行方法;
+            var $obj = $(this);
+            if ($obj.width() == $default.minWidth) {
+                var timeDo = window.setTimeout(function() {
+                    $default.index = $obj.index();
+                    $obj.anim();
+                }, 100);
+                $obj.mouseout(function() {
+                    window.clearTimeout(timeDo);
+                });
+            }
+        },
+        autoPlay:function() {									//自动播放;
+            if ($default.auto) {
+                var $this = $(this);
+                $this.autoDo();
+                $this.mouseover(function() {
+                    window.clearInterval(timeL);
+                });
+                $this.mouseout(function() {
+                    $this.autoDo();
+                });
+            }
+        },
+        autoDo:function() {										//播放方法;
+            var $len 	= 	$(this).length - 1;
+            var $this 	= 	$(this);
+            	timeL 	= 	window.setInterval(function() {
+                				$this.eq($default.index).anim();
+                				$default.index < $len ? $default.index++ :$default.index = 0;
+            				}, $default.sec);
+        },
+        anim:function() {										//动画方法;
+            var $fx = function() {
+                $(this).siblings("li").animate({
+                    width	:	$default.minWidth,  
+                     opacity	:	0.5
+                }, $default.speed).removeClass('active');
+                $(this).animate({
+                    width	:	$default.maxWidth,
+					 opacity	:	1                   
+                }, $default.speed).addClass('active');
+				
+                $(this).siblings("li").children("div").fadeOut();
+                $(this).children("div").fadeTo($default.speed,0.7);
+                $(this).dequeue();
+            };
+            $(this).queue($fx);
+        }
+    });
+})(jQuery);
+</script>
+    
+  </head>
+
+  <body>
+  <ul id="demo">
+  <li class="active"> <a href="#"><img src="picture/1.png"  /></a>
+    <div><a href="begin.html">Picture information1</a></div>
+  </li>
+  <li> <a href="#"><img src="picture/2.png"  /></a>
+    <div><a href="#">Picture information2</a></div>
+  </li>
+  <li> <a href="#"><img src="picture/3.png"  /></a>
+    <div><a href="#">Picture information3</a></div>
+  </li>
+  <li> <a href="#"><img src="picture/4.png"  /></a>
+    <div><a href="#">Picture information4</a></div>
+  </li>
+  <li> <a href="#"><img src="picture/5.png"  /></a>
+    <div><a href="#">Picture information5</a></div>
+  </li>
+</ul>
+  </body>
+</html>

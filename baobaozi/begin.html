@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="picture/logo.png" type="image/x-icon"/>
+    <title>baozi</title>
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=utf-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+    <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+	<link href="head/cropper.min.css" rel="stylesheet">
+	<link href="head/sitelogo.css" rel="stylesheet">
+	<script src="head/cropper.js"></script>
+	<script src="head/sitelogo.js"></script>
+
+<link rel="stylesheet" href="css/mplayer.css">
+<link rel="stylesheet" type="text/css" href="css/zeroModal.css" />
+<link rel="stylesheet" type="text/css" href="css/component.css" />
+<link rel="stylesheet" href="iconfont/iconfont.css">
+<link rel="stylesheet" href="css/begin.css">
+<link rel="stylesheet" href="css/begin-login.css">
+
+<style type="text/css">
+#submit-success{
+	position:absolute;
+	width:35px;
+	height:35px;
+	z-index:21;
+	left:91%;
+	border-radius:50%;
+	top:1px;
+	border:1px solid #3C3C3C;
+	box-shadow:0 0 3px #ADADAD;
+	overflow:hidden;
+	text-align:center;
+	transition:all 0.5s;
+	display:none;
+}
+#submit-success img{
+	width:35px;
+	height:35px;
+	transition:all 0.5s;
+}
+#submit-success-box{
+	position:absolute;
+	width:200px;
+	height:0px;
+	z-index:20;
+	left:85%;
+	top:40px;
+	background-color:white;
+	transition:height 0.5s;
+	border-radius:0 0 2px 2px;
+	overflow:hidden;
+}
+#username{
+	position:relative;
+	margin-top:30px;
+	text-align:center;
+	font-size: 10px;
+	font-family:"microsoft yahei";
+}
+#user-list{
+	text-align:center;
+	position: relative;
+	margin-left:15px;
+	margin-top:70px;
+}
+#user-list li{
+	float:left;
+	list-style:none;
+	font-family:"microsoft yahei";
+	margin-left:5px;
+	width:80px;
+	margin-top:7px;
+	transition: 0.3s;
+}
+#user-list li:HOVER a{
+	color:#6FB7B7;
+	transition: 0.3s;
+}
+#user-list a{
+	text-decoration: none;  
+    height: 100%;  
+    display: block;  
+    font-size: 13px;
+    color:black;  
+    text-align: center; 
+}
+#submit-success-foot{
+	width:200px;
+	height:25px;
+	position: relative;
+	z-index:1;
+	background-color:#F0F0F0;
+	border-radius:0 0 2px 2px;
+	margin-top:137px;
+}
+#submit-success-foot a{
+	position: relative;
+	display:block;
+	float:left;
+	text-decoration: none; 
+    font-size: 12px;
+    color:#3C3C3C;  
+    text-align: center; 
+    transition: 0.3s;
+    margin-left:70px;
+    margin-top:7px;
+}
+.iconfont{
+	font-size:13px;
+}
+#submit-success-foot a:hover{
+	color:#00AEAE;
+	transition: 0.3s;
+}
+#submit-success-box-button1{
+	position:absolute;
+	z-index:2;
+	width:80px;
+	height:40px;
+	left:10px;
+	top:65px;
+}
+#submit-success-box-button2{
+	position:absolute;
+	z-index:2;
+	width:80px;
+	height:40px;
+	left:100px;
+	top:65px;
+}
+</style>
+  </head>
+ <body>
+<div id="div-box">
+	<div class="container1 demo-3">
+	<div class="content">
+		<div id="large-header" class="large-header">
+			<canvas id="demo-canvas"></canvas>
+			<h1 class="main-title">Collab</span></h1>
+		</div>
+	</div>
+	</div><!-- /container -->
+
+</div>
+
+
+
+  <div class="mp">
+	<div class="mp-box">
+		<img src="img/mplayer_error.png" alt="music cover" class="mp-cover">
+		<div class="mp-info">
+			<p class="mp-name">燕归巢</p>
+			<p class="mp-singer">许嵩</p>
+			<p><span class="mp-time-current">00:00</span>/<span class="mp-time-all">00:00</span></p>
+		</div>
+		<div class="mp-btn">
+			<button class="mp-prev" title="上一首"></button>
+			<button class="mp-pause" title="播放"></button>
+			<button class="mp-next" title="下一首"></button>
+			<button class="mp-mode" title="播放模式"></button>
+			<div class="mp-vol">
+				<button class="mp-vol-img" title="静音"></button>
+				<div class="mp-vol-range" data-range_min="0" data-range_max="100" data-cur_min="80">
+					<div class="mp-vol-current"></div>
+					<div class="mp-vol-circle"></div>
+				</div>
+			</div>
+		</div>
+		<div class="mp-pro">
+			<div class="mp-pro-current"></div>
+		</div>
+		<div class="mp-menu">
+			<button class="mp-list-toggle"></button>
+			<button class="mp-lrc-toggle"></button>
+		</div>
+	</div>
+	<button class="mp-toggle">
+		<span class="mp-toggle-img"></span>
+	</button>
+	<div class="mp-lrc-box">
+		<ul class="mp-lrc"></ul>
+	</div>
+	<button class="mp-lrc-close"></button>
+	<div class="mp-list-box">
+		<ul class="mp-list-title"></ul>
+		<table class="mp-list-table">
+			<thead>
+				<tr>
+					<th>歌名</th>
+					<th>歌手</th>
+					<th>时长</th>
+				</tr>
+			</thead>
+			<tbody class="mp-list"></tbody>
+		</table>
+	</div>
+</div>
+
+<div id="head">
+  		<ul id="list-head">
+  			<li id="name"><a href="#">首页</a></li>
+  			<li><a href="#">测试</a></li>
+  			<li><a href="#">测试</a></li>
+  			<li><a href="#">测试</a></li>
+  			<li><a href="#">测试</a></li>
+  			<li><a href="#">测试</a></li>
+  		</ul>
+  		<ul id="list-right">
+  				<li><a href="javascript:void(0);"><span id="registeredbutton">注册</span></a></li>
+  				<li><a href="javascript:void(0);">/</a></li>
+  				<li><a href="javascript:void(0);"><span id="loginbutton">登录</span></a></li>
+  		</ul>
+  		<div id="submit-success-control">
+  			<div id="submit-success">
+  				<img id="submit-success-img" alt="" src="GetImgAction?+date"+new Date()>
+  			</div>
+ 
+  			<div id="submit-success-box">
+  				<div id="username">
+  					<p id="submit-success-box-loginusername"></p>
+  				</div>	
+  				  
+  				<button id="submit-success-box-button1" type="button" class="btn btn-primary"  data-toggle="modal" data-target="#avatar-modal" style="margin: 10px;">
+					修改头像
+				</button>
+  				 
+  				<button id="submit-success-box-button2" type="button" class="btn btn-danger"  style="margin: 10px;">
+					上传文件
+				</button>
+  				  
+  				<div id="user-list">
+  					<ul>
+  						<li><a href=""><i class="iconfont icon-account"></i> 个人中心</a></li>
+  						<li><a href=""><i class="iconfont icon-libra"></i> 安全管理</a></li>
+  						<li><a href=""><i class="iconfont icon-hot"></i> 影视大全</a></li>
+  						<li><a href=""><i class="iconfont icon-electronics"></i> 游戏介绍</a></li>
+  					</ul>
+  				</div>
+  				
+  				<div id="submit-success-foot">
+  					<a id="submit-success-foot-href" href="javascript:void(0);"><i class="myiconfont iconfont icon-tuichu"></i> 安全退出</a>
+  				</div>
+  				
+  			</div>
+  		</div>
+  	</div>
+  	
+	
+	<div class="user_pic" style="margin: 10px;">
+			<img src=""/>
+		</div>
+
+		<div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<!--<form class="avatar-form" action="upload-logo.php" enctype="multipart/form-data" method="post">-->
+					<form class="avatar-form">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal" type="button">&times;</button>
+							<h4 class="modal-title" id="avatar-modal-label">上传图片</h4>
+						</div>
+						<div class="modal-body">
+							<div class="avatar-body">
+								<div class="avatar-upload">
+									<input class="avatar-src" name="avatar_src" type="hidden">
+									<input class="avatar-data" name="avatar_data" type="hidden">
+									<label for="avatarInput" style="line-height: 35px;">图片上传</label>
+									<button class="btn btn-danger"  type="button" style="height: 35px;" onclick="$('input[id=avatarInput]').click();">请选择图片</button>
+									<span id="avatar-name"></span>
+									<input class="avatar-input hide" id="avatarInput" name="avatar_file" type="file"></div>
+								<div class="row">
+									<div class="col-md-9">
+										<div class="avatar-wrapper"></div>
+									</div>
+									<div class="col-md-3">
+										<div class="avatar-preview preview-lg" id="imageHead"></div>
+										<!--<div class="avatar-preview preview-md"></div>
+								<div class="avatar-preview preview-sm"></div>-->
+									</div>
+								</div>
+								<div class="row avatar-btns">
+									<div class="col-md-4">
+										<div class="btn-group">
+											<button class="btn btn-danger fa fa-undo" data-method="rotate" data-option="-90" type="button" title="Rotate -90 degrees"> 向左旋转</button>
+										</div>
+										<div class="btn-group">
+											<button class="btn  btn-danger fa fa-repeat" data-method="rotate" data-option="90" type="button" title="Rotate 90 degrees"> 向右旋转</button>
+										</div>
+									</div>
+									<div class="col-md-5" style="text-align: right;">								
+										<button class="btn btn-danger fa fa-arrows" data-method="setDragMode" data-option="move" type="button" title="移动">
+							            <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="$().cropper(&quot;setDragMode&quot;, &quot;move&quot;)">
+							            </span>
+							          </button>
+							          <button type="button" class="btn btn-danger fa fa-search-plus" data-method="zoom" data-option="0.1" title="放大图片">
+							            <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="$().cropper(&quot;zoom&quot;, 0.1)">
+							              <!--<span class="fa fa-search-plus"></span>-->
+							            </span>
+							          </button>
+							          <button type="button" class="btn btn-danger fa fa-search-minus" data-method="zoom" data-option="-0.1" title="缩小图片">
+							            <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="$().cropper(&quot;zoom&quot;, -0.1)">
+							              <!--<span class="fa fa-search-minus"></span>-->
+							            </span>
+							          </button>
+							          <button type="button" class="btn btn-danger fa fa-refresh" data-method="reset" title="重置图片">
+								            <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="$().cropper(&quot;reset&quot;)" aria-describedby="tooltip866214">
+								       </button>
+							        </div>
+									<div class="col-md-3">
+										<button class="btn btn-danger btn-block avatar-save fa fa-save" type="button" data-dismiss="modal"> 保存修改</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
+	
+
+  <div id="main">
+  
+  	<div id="container-box">
+    	<div id="list" style="left: -1000px;">
+    		<img src="picture/5.jpg"/>
+    		<img src="picture/1.jpg"/>
+    		<img src="picture/2.jpg"/>
+    		<img src="picture/3.jpg"/>
+    		<img src="picture/4.jpg"/>
+    		<img src="picture/5.jpg"/>
+    		<img src="picture/1.jpg"/>
+    	</div>
+    	<div id="buttons-box">
+    		<span index="1" class="on"></span>
+    		<span index="2"></span>
+    		<span index="3"></span>
+    		<span index="4"></span>
+    		<span index="5"></span>
+    	</div>
+    	<span  id="prev" class="arrow1">&lt;</span>
+    	<span id="next" class="arrow1">&gt;</span>
+    </div>
+  </div> 
+
+
+  <div id="login-main">
+  
+  	<div id="login-registered">
+  		<div id="login-registered-head">
+    		<ul id="login-list">
+    			<li id="login-list-1"><a id="login-list-1-login" href="javascript:void(0);"><span>登录</span></a></li>
+  				<li id="login-list-2"><a id="login-list-2-registered" href="javascript:void(0);"><span>注册</span></a></li>
+  				<li id="login-list-3"><span id="close-login" class="close hairline"></span></li>
+    		</ul>
+    	</div>
+  	</div>
+  	
+  	<div id="login">
+  		<div id="login-in-head">
+  			<p id="login-in-head-warning"></p>
+  		</div>
+  		<form id="login-form">
+  			<div id="login-username-head">
+  				<input id="login-username" name="username" type="text" placeholder="请输入登陆邮箱/手机号"/>
+  			</div>
+  			<div id="login-in-body">
+  			<p id="login-in-body-warning"></p>
+  			</div>
+  			<div id="login-password-head">
+  				<input id="login-password" name="password" type="password" placeholder="6-16位密码，区分大小写，不能用空格"/>
+  			</div>
+  			<div id="login-in-foot">
+  			<p id="login-in-foot-warning"></p>
+  			</div>
+  		</form>	
+  	</div>
+	  	
+	  	<div id="verification-code">
+	  		<input id="verification-code-head" name="verification" type="text" placeholder="请输入验证码" />
+	  		<div id="verification-code-body">
+	  		<img alt="" src="Verification.action" id="verification-code-body-img"/>
+	  		</div>
+	  		<div id="verification-code-foot">
+	  			<a id="button-rotation" href="javascript:void(0);"><strong>&#10227</strong></a>
+	  		</div>
+	  		<div id="verification-code-istrue">
+	  			<p id="verification-code-warning"></p>
+	  		</div>
+	  	</div>
+  	
+  		<div id="login-checkbox-box">
+    		<div id="login-checkbox-head">
+  				<input type="checkbox" id="login-check" name="ischeck">
+  				<label id="checkbox-label">七天内自动登录</label>
+  				<a id="forgot-password" href="#">忘记密码?</a>	
+  			</div>
+			<div class="ph-post1-wrapper">
+				<a id="button-href" class="button" data-title="登陆" href="javascript:void(0);"> <span><span>登陆</span></span>
+				</a>
+			</div>
+		</div>
+    <div id="registered">	
+    		<div id="registered-head">
+    			<input id="registered-head-num" type="text" name="registered" placeholder="请输入注册邮箱/手机号"/>
+    		</div>
+    		
+    		<div id="registered-body-box">
+    			<p id="registered-body-warining"></p>
+    		</div>
+    </div>	
+    		
+    	<div id="registered-body">
+    		
+    		<input id="registered-body-password-1" type="password" name="registered" placeholder="请输入你设置的密码"/>
+    		<div id="registered-body-password-1-box">
+	  			<p id="registered-body-password-1-box-warning"></p>
+	  		</div>
+    		<input id="registered-body-password-2" type="password" name="registered" placeholder="请再次确认你的秘密"/>
+    		<div id="registered-body-password-2-box">
+	  			<p id="registered-body-password-2-box-warning"></p>
+	  		</div>
+	  		<div id="registered-body-foot">
+	  			<span id="registered-body-span">显示密码</span>
+	  			<input type="checkbox" id="registered-body-checkbox" name="isshow"/>
+	  		</div>
+    	</div>
+    		
+    	<div id="registered-foot">
+    		<div id="validation-main">
+    		
+    			<input id="registered-verification-code-head" name="verification" type="text" placeholder="请输入验证码" />
+	  			<div id="registered-verification-code-body">
+	  				<img alt="" src="Verification.action?timestamp=" + new Date().getTime() id="registered-verification-code-body-img"/>
+	  			</div>
+	  			<div id="registered-verification-code-foot">
+	  				<a id="registered-button-rotation" href="javascript:void(0);"><strong>&#10227</strong></a>
+	  			</div>
+	  			<div id="registered-verification-code-istrue">
+	  				<p id="registered-verification-code-warning"></p>
+	  			</div>
+	  		
+    		</div>
+    		
+    		<div class="ph-post1-wrapper">
+				<a id="registered-button" class="button" data-title="注册" href="javascript:void(0);"> <span><span>注册</span></span>
+				</a>
+			</div>
+		</div>
+		
+		<div id="registered-mail">
+			
+			<input id="registered-mail-body" type="text" name="registered" placeholder="请输入你要设置的用户名"/>
+			
+			<div id="registered-mail-body-head">
+				<span id="registered-mail-body-head-warning"></span>
+			</div>
+			
+			
+			<input id="registered-mail-foot" type="text" name="registered" placeholder="请输入验证码"/>
+			
+			<div id="registered-mail-foot-button" >
+				<a href="javascript:void(0);" id="registered-mail-foot-button-herf" onclick="mailclick(event)">获取邮箱验证码</a>
+			</div>
+			
+			<div id="registered-mail-foot-head">
+				<span id="registered-mail-foot-head-warning"></span>
+			</div>
+			
+			<div class="ph-post1-wrapper">
+				<a id="mail-submit-button-href" class="button" data-title="提交" href="javascript:void(0);"> <span><span>提交</span></span></a>
+			</div>
+		</div>
+  </div>
+ </body>
+ 
+<script src="head/html2canvas.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/TweenLite.min.js"></script>
+<script src="js/EasePack.min.js"></script>
+<script src="js/rAF.js"></script>
+<script src="js/demo-3.js"></script>
+<script src="js/registed.js"></script>
+<script src="http://www.jq22.com/jquery/jquery-2.1.1.js"></script>
+<script src="js/mplayer.js"></script>
+<script src="js/mplayer-list.js"></script>
+<script src="js/mplayer-functions.js"></script>
+<script src="http://cdn.bootcss.com/jquery-nstslider/1.0.13/jquery.nstSlider.min.js"></script>
+<script src="js/mplayer-all.js"></script>
+<script src="js/begin.js"></script>
+<script src="js/begin-login.js"></script> 
+<script src="js/login.js"></script> 
+<script src="js/modernizr.js"></script>
+<script src="js/zeroModal.min.js"></script>
+<script src="js/login-img.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script> 
+<script type="text/javascript" src="js/jquery.base64.js"></script>
+<script type="text/javascript" src="js/jquery.session.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(e){
+		$("#submit-success-control").on('mouseover',function(){
+		$("#submit-success-box").css("height","210px");
+		$("#submit-success").css({"height":"45px","width":"45px","top":"15px","border":"1px solid white"});
+		$("#submit-success-img").css({"height":"45px","width":"45px"});
+	});
+	$("#submit-success-control").on('mouseout',function(){
+		$("#submit-success-box").css("height","0px");
+		$("#submit-success").css({"height":"35px","width":"35px","top":"1px","border":"1px solid #3C3C3C"});
+		$("#submit-success-img").css({"height":"35px","width":"35px"});
+	});
+	$("#submit-success-foot-href").click(function(){
+		$.cookie("isimg", "false", { expires: 7 });
+		$("#list-right").css("display","block");
+		$("#submit-success").css("display","none");
+		$("#submit-success-box").css("display","none");
+		$("#verification-code-head").val("");
+		$("#verification-code-body-img").attr("src","Verification.action");
+		
+	});
+	});
+</script>
+</html>

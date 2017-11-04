@@ -1,0 +1,502 @@
+@CHARSET "UTF-8";
+#login-registered{
+	display:none;
+	position:fixed;
+	width:350px;
+	height:62px;
+	z-index:999;
+	top:18%;
+	left: 0;
+	right: 0;
+	margin:0 auto;
+	background-color: #FFFFFF;
+}
+
+#login-main{
+ 	display:none;
+	position:fixed;
+	width:100%;
+	height:100%;
+	z-index:998;
+	background-color:rgba(139,134,130,0.5);
+
+}
+
+
+#login-list{
+	display:block;
+	text-align:center;
+	position: relative;
+	margin-left: 20px;
+	margin-right:20px;
+}
+
+#login-list-1,#login-list-2{
+	display:block;
+	float:left;
+	list-style:none;
+	font-family:"microsoft yahei";
+	width:70px;
+	border-bottom: 1px #E0E0E0 solid;
+}
+
+#login-list a{
+	line-height:50px;
+	color:#5B5B5B;  
+    text-align: center;
+    font-size:18px;
+    text-decoration: none;
+    display:block;
+}
+
+#login-list-3{
+	position:relative;
+	float:right;
+	width:170px;
+	height:51px;
+	list-style:none;
+	font-family:"microsoft yahei";
+	border-bottom: 1px #E0E0E0 solid;
+}
+
+
+#login{
+	display:none;
+	position:fixed;
+	width:350px;
+	height:148px;
+	z-index:999;
+	top:28%;
+	left: 0;
+	right: 0;
+	margin:0 auto;
+	background-color: #FFFFFF;
+
+}
+
+#verification-code{
+	display:none;
+	position:fixed;
+	width:350px;
+	height:70px;
+	z-index:998;
+	top:51%;/*51%显示中间的自己*/
+	left: 0;
+	right: 0;
+	margin:0 auto;
+	background-color: #FFFFFF;
+}
+
+#verification-code-head{
+	float:left;
+	width:100px;
+	height:35px;
+	position: relative;
+	margin-left:35px;
+	margin-top:7px;
+	border-bottom: 1px solid rgb(205,201,201);
+	border-left: 1px solid rgb(205,201,201);
+	border-right: 1px solid rgb(205,201,201);
+	border-top: 1px solid rgb(205,201,201);
+}
+#verification-code-body{
+	float:left;
+	width:70px;
+	height:40px;
+	position: relative;
+	margin-left:10px;
+	margin-top:7px;
+}
+#verification-code-foot{
+	float:left;
+	width:70px;
+	height:37px;
+	position: relative;
+	margin-top:7px;
+	margin-left:10px;
+}
+#verification-code-foot img{
+	width:70px;
+	display:block;
+	height:37px;
+}
+#button-rotation{
+	font-size:20px;
+	text-decoration: none;
+	color:rgba(105,105,105,0.5);
+	transition: All 0.4s ease-in-out;
+	display: block;
+	width:20px;
+	height:20px;
+	position:absolute;
+	top:9px;
+	line-height:18px;
+}
+#button-rotation:hover{
+    transform: rotatez(360deg);
+    color:rgba(105,105,105,1);
+}
+
+#verification-code-istrue{
+	height:20px;
+	width:250px;
+	position:absolute;
+	margin-left: 35px;
+	font-family:"microsoft yahei";
+	font-size:15px;
+	color:#FF0000;
+	top:47px;
+}
+#login-checkbox-box{
+	display:none;
+	position:fixed;
+	width:350px;
+	height:148px;
+	z-index:997;
+	top:51%;/*51%可以消除中间的验证码 61%显示中间验证码*/
+	left: 0;
+	right: 0;
+	margin:0 auto;
+	background-color: #FFFFFF;
+}
+
+#registered{
+	display:none;
+	position:fixed;
+	width:350px;
+	height:86px;
+	z-index:999;
+	top:28%;
+	left: 0;
+	right: 0;
+	margin:0 auto;
+	background-color: #FFFFFF;
+}
+#validation-main{
+	position:relative;
+	margin-top:20px;
+	height:46px;
+}
+.ph-post1-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 15.25em;
+  min-width: 10em;
+  font: 2em/1.4 "Bowlby One SC", Arial, sans-serif;
+  font-weight: 400;
+  line-height:7px;
+  text-align:center;
+}
+
+.ph-post1-wrapper img {
+    max-width: 100%;
+    height: auto;
+}
+    
+.ph-post1-wrapper a {
+    text-decoration: none; 
+    position: relative;
+}
+    
+.ph-post1-wrapper .button {
+  display: block;
+  position: relative;
+  height: 2em;
+  width: 9em;
+  margin: .7em auto;
+  overflow: hidden;
+  border-radius:4px; 
+}
+ 
+.ph-post1-wrapper .button > span {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    transition: 1s ease-in-out; 
+}
+    
+.ph-post1-wrapper .button:after, .ph-post1-wrapper .button > span > span {
+    display: block;
+    text-align: center;
+    padding: 1em 0; 
+}
+    
+.ph-post1-wrapper .button:after {
+    content: attr(data-title);
+    background:#7B7B7B;
+  	color:#D0D0D0;
+}
+    
+.ph-post1-wrapper .button > span > span {
+    width: 9em;
+    background:#D0D0D0;
+  	color:#7B7B7B;
+}
+    
+.ph-post1-wrapper .button:hover > span {
+    width: 100%; 
+}
+
+#login-username,#login-password{
+	width:280px;
+	position:relative;
+	margin-left:35px;
+	height:30px; 
+	display:block;
+	border-bottom: 1px solid rgb(205,201,201);
+	border-left: 1px solid rgb(205,201,201);
+	border-right: 1px solid rgb(205,201,201);
+	border-top: 1px solid rgb(205,201,201);
+}
+#login-password{
+	margin-top:25px;
+}
+#login-username{
+	margin-top: 30px;
+}
+
+#login-check{
+	margin-top:23px;
+	margin-left:35px;
+	vertical-align:0px;
+}
+
+#checkbox-label{
+	position:relative;	
+	font-size:12px;
+	font-family:"microsoft yahei";
+	color:#5B5B5B;
+	vertical-align:3px;;
+}
+
+#forgot-password{
+	position:relative;	
+	font-size:12px;
+	font-family:"microsoft yahei";
+	color:#5B5B5B;
+	float:right;
+	margin-right:28px;
+	margin-top: 19px;
+	text-decoration: none; 
+}
+
+#forgot-password:HOVER {
+	color:#1ebcc5;
+}
+
+#registered-head-num{
+	width:280px;
+	position:relative;
+	margin-left:35px;
+	height:30px; 
+	margin-top: 30px;
+	border-bottom: 1px solid rgb(205,201,201);
+	border-left: 1px solid rgb(205,201,201);
+	border-right: 1px solid rgb(205,201,201);
+	border-top: 1px solid rgb(205,201,201);
+}
+
+#validation-num{
+	width:120px;
+	position:relative;
+	margin-left:35px;
+	height:40px;
+	margin-top:15px;
+	border-bottom: 1px solid rgb(205,201,201);
+	border-left: 1px solid rgb(205,201,201);
+	border-right: 1px solid rgb(205,201,201);
+	border-top: 1px solid rgb(205,201,201);
+}
+#registered-verification-code-head{
+	float:left;
+	width:100px;
+	height:35px;
+	position: relative;
+	margin-left:35px;
+	margin-top:7px;
+	border-bottom: 1px solid rgb(205,201,201);
+	border-left: 1px solid rgb(205,201,201);
+	border-right: 1px solid rgb(205,201,201);
+	border-top: 1px solid rgb(205,201,201);
+}
+
+#registered-verification-code-body{
+	float:left;
+	width:70px;
+	height:40px;
+	position: relative;
+	margin-left:10px;
+	margin-top:7px;
+}
+#registered-verification-code-foot{
+	float:left;
+	width:70px;
+	height:37px;
+	position: relative;
+	margin-top:7px;
+	margin-left:10px;
+}
+#registered-verification-code-foot img{
+	width:70px;
+	display:block;
+	height:37px;
+}
+#registered-button-rotation{
+	font-size:20px;
+	text-decoration: none;
+	color:rgba(105,105,105,0.5);
+	transition: All 0.4s ease-in-out;
+	display: block;
+	width:20px;
+	height:20px;
+	position:absolute;
+	top:9px;
+	line-height:18px;
+}
+#registered-button-rotation:hover{
+    transform: rotatez(360deg);
+    color:rgba(105,105,105,1);
+}
+
+
+#registered-verification-code-istrue{
+	height:20px;
+	width:250px;
+	position:absolute;
+	margin-left: 35px;
+	font-family:"microsoft yahei";
+	font-size:15px;
+	color:#FF0000;
+	top:47px;
+}
+#registered-foot{
+	display:none;
+	position:fixed;
+	background-color: #FFFFFF;
+	z-index:997;
+	width:350px;
+	left: 0;
+	right: 0;
+	top:39%; /*58%时可以消除中间的模块 39%时中间的模块显示*/
+	margin:0 auto;
+	
+}
+#registered-body{
+	display:none;
+	position:fixed;
+	background-color: #FFFFFF;
+	z-index:998;
+	width:350px;
+	left: 0;
+	right: 0;
+	height:131px;
+	top:39%;/*39%可以和第一个拼接*/
+	margin:0 auto;
+}
+#registered-body input{
+	width:280px;
+	position:relative;
+	margin-left:35px;
+	height:30px;
+	display:block;
+	margin-top:21px;
+	border-bottom: 1px solid rgb(205,201,201);
+	border-left: 1px solid rgb(205,201,201);
+	border-right: 1px solid rgb(205,201,201);
+	border-top: 1px solid rgb(205,201,201);
+}
+
+#registered-body-foot input{
+	position:relative;
+	float:right;
+	width:13px;
+	height:13px;
+	margin-top:8px;
+	margin-right:3px;
+}
+
+#registered-body-span{
+	position:absolute;	
+	font-size:12px;
+	font-family:"microsoft yahei";
+	color:#5B5B5B;
+	position:relative;
+	float:right;
+	margin-top:6px;
+	margin-right:33px;
+}
+
+/* 邮箱注册样式 */
+#registered-mail{
+	display:none;
+	position:fixed;
+	width:350px;
+	height:250px;
+	z-index:999;
+	top:28%;
+	left: 0;
+	right: 0;
+	margin:0 auto;
+	background-color: #FFFFFF;
+
+}
+#registered-mail-body,#registered-mail-foot{
+	width:280px;
+	position:relative;
+	margin-left:35px;
+	height:30px; 
+	display:block;
+	border-bottom: 1px solid rgb(205,201,201);
+	border-left: 1px solid rgb(205,201,201);
+	border-right: 1px solid rgb(205,201,201);
+	border-top: 1px solid rgb(205,201,201);
+}
+#registered-mail-foot{
+	margin-top:24px;
+}
+#registered-mail-body{
+	margin-top:30px;
+}
+#registered-mail-head-box{
+	width:280px;
+	height:30px;
+	position:relative;
+	margin-left:54px;
+	font-family:"microsoft yahei";
+}
+#registered-mail-foot{
+	width:90px;
+	height:40px;
+}
+#registered-mail-foot-button{
+	height:40px;
+	width:150px;
+	margin-left:150px;
+	margin-top:-42px;
+	position:relative;
+	text-align:center;
+	line-height:40px;
+	background-color:#FF0000;
+	border-radius:2px;
+	box-shadow: 1px 1px 1px #ADADAD;
+}
+#registered-mail-foot-button a{
+	text-decoration:none;
+	font-family:"microsoft yahei";
+	font-size:15px;
+	color:#FAFFF0;	
+}
+
+#registered-mail-foot-head,#registered-mail-body-head,#login-in-head,#login-in-foot,#login-in-body,#registered-body-box,#registered-body-password-1-box,#registered-body-password-2-box{
+	height:20px;
+	width:200px;
+	position:absolute;
+	margin-left: 35px;
+	font-family:"microsoft yahei";
+	font-size:15px;
+	color:#FF0000;
+}

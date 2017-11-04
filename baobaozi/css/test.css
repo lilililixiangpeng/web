@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+
+*{margin:0;padding:0}
+#box{
+	box-shadow:0 0 10px#ccc;
+	border-radius:5px;
+    border:1px solid #ccc;
+	width: 1000px;
+	height:450px;
+	margin: 0 auto;
+	position:relative;
+	margin-top:50px;
+	overflow:hidden;
+}
+
+#list{
+	position:absolute;
+	height:450px;
+	width:7000px;
+	z-index:1;
+}
+
+#list img{float:left
+		 height:100%;
+		 width:1000px;
+		 border-radius: 5px;
+		 -webkit-border-radius: 5px;
+		 -moz-border-radius: 5px;
+		 }
+

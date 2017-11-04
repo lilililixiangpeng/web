@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="GetImgAcitonSpring" class="com.project.users.action.GetImgAction">
+		<property name="userBo" ref="UserBO" />	
+	</bean>
+	
+	<bean id="SaveImgActionSpring" class="com.project.users.action.SaveImgAction">
+		<property name="userBo" ref="UserBO" />	
+	</bean>
+	
+	<bean id="GetLoginUsernameAction" class="com.project.users.action.GetLoginUsernameAction">
+		<property name="userBo" ref="UserBO" />	
+	</bean>
+	
+	<bean id="CheckLoginUsrnameAction" class="com.project.users.action.CheckLoginUsrnameAction">
+		<property name="userBo" ref="UserBO" />	
+	</bean>
+	
+	<bean id="RegisterUserAction" class="com.project.users.action.RegisterUserAction">
+		<property name="userBo" ref="UserBO" />	
+	</bean>
+	
+	<bean id="UserAction" class="com.project.users.action.UserAction">
+		<property name="userBo" ref="UserBO" />	
+	</bean>
+
+	<bean id="UserBO" class="com.project.users.bo.impl.UserBoImpl" >
+		<property name="userDAO" ref="UserDAO" />
+	</bean>
+	
+   	<bean id="UserDAO" class="com.project.users.dao.impl.UserDAOImpl" >
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+</beans>
